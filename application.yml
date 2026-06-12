@@ -1,0 +1,16 @@
+server:
+  port: 33400
+
+general:
+  kafka-topic: trader-updates
+
+spring:
+  kafka:
+    consumer:
+      group-id: midas-core-group
+      auto-offset-reset: earliest
+      properties:
+        spring.json.trusted.packages: com.jpmc.midascore.foundation
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
